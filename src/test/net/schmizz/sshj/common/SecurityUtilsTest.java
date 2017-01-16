@@ -6,28 +6,26 @@
  *******************************************************************************/
 package net.schmizz.sshj.common;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
-
-import net.schmizz.sshj.SSHClient;
 
 /**
  * @author Martin Weber
  */
 public class SecurityUtilsTest {
 
-  @Before
-  public void setUp() throws Exception {
-  }
-
+  /**
+   * Tests whether bouncycastle providers can be instantiated (OSGI inhibited loding classes from BC jar, if packages are not imported in sshj`s jar).
+   *
+   */
   @Test
   public final void testBouncyCastleProvider() {
     SecurityUtils.setRegisterBouncyCastle(true);
     // trigger a net.schmizz.sshj.common.SSHRuntimeException caused by
     // a ClassNotFoundException: org.bouncycastle.jce.provider.BouncyCastleProvider
-    SecurityUtils.getSecurityProvider();
+    boolean res= SecurityUtils.isBouncyCastleRegistered();
+    assertTrue("registered BC", res);
   }
 
 }
