@@ -6,5 +6,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.hierynomus.sshj,
  org.junit;bundle-version="4.11.0",
  org.mockito;bundle-version="1.8.4",
- org.hamcrest;bundle-version="1.1.0"
+ org.hamcrest;bundle-version="1.1.0",
+ bcprov;bundle-version="1.5.1",
+ bcpkix;bundle-version="1.5.1"
 Bundle-ActivationPolicy: lazy
